@@ -2,8 +2,12 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { useAsync } from 'react-use';
 import { Chip } from '../../components/chip';
+import { useEffect, useRef } from 'react';
 
 const Detail = () => {
+    const style = useRef();
+    const html = useRef();
+
     const router = useRouter();
     const { id } = router.query;
     const data = useAsync(async () => {
@@ -12,20 +16,26 @@ const Detail = () => {
         return await response.json();
     }, [id]);
 
+    useEffect(() => {
+        if (!data.loading) {
+            style.current.innerHTML = data.value.style;
+            html.current.innerHTML = data.value.content;
+        }
+    }, [data]);
+
     return (
         <div className="inner">
             <Head>
                 <title>
-                    Saaro&Saaro -{' '}
+                    Saaro&amp;Saaro -{' '}
                     {data.loading ? 'Loading...' : data.value?.name}
                 </title>
             </Head>
             <div className="breadcrumbs">
                 <ul>
                     <li>Home</li>
-                    <li>Medical</li>
-                    <li>Painkiller</li>
-                    <li>Parabetamol</li>
+                    <li>Find</li>
+                    <li>{data.loading ? 'Loading...' : data.value?.name}</li>
                 </ul>
             </div>
             {(data.loading || !data.value) ? (
@@ -43,12 +53,13 @@ const Detail = () => {
                         Last Update:{' '}
                         {new Date(data.value?.last_update).toDateString()}
                     </p>
-                    <div></div>
+                    <style ref={style}></style>
+                    <div ref={html}></div>
                 </>
             )}
 
             <br />
-            <code>{JSON.stringify(data.value)}</code>
+            {/* <code>{JSON.stringify(data.value)}</code> */}
         </div>
     );
 };
