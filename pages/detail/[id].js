@@ -18,11 +18,11 @@ const Detail = () => {
     }, [id]);
 
     useEffect(() => {
-        if (!data.loading && data.value) {
+        if (!data.loading && data.value && tabIndex == 1) {
             styleContainer.current.innerHTML = data.value.style;
             contentContainer.current.innerHTML = data.value.content;
         }
-    }, [data]);
+    }, [data, tabIndex]);
 
     return (
         <div className="inner">
@@ -106,7 +106,8 @@ const Detail = () => {
                             {tabIndex === 1 && (
                                 <div>
                                     <h3>Leaflet</h3>
-                                    {/* <div dangerouslySetInnerHTML={data.value.content}></div> */}
+                                    <style ref={styleContainer}></style>
+                                    <div ref={contentContainer}></div>
                                 </div>
                             )}
 
@@ -123,8 +124,6 @@ const Detail = () => {
                             )}
                         </div>
                     </p>
-                    <style ref={styleContainer}></style>
-                    <div ref={contentContainer}></div>
                 </>
             )}
 
