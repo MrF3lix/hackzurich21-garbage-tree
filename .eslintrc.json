@@ -1,3 +1,22 @@
 {
-  "extends": "next/core-web-vitals"
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "next/core-web-vitals"
+    ],
+    "rules": {
+        "linebreak-style": 0,
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-unused-vars": 0,
+        "react/prop-types": 0,
+        "no-console": 0,
+        "no-case-declarations": 0
+    }
 }
