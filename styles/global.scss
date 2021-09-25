@@ -181,6 +181,7 @@ h4 {
         padding: 25px 10px;
         cursor: pointer;
         border-bottom: 1px solid $light-gray;
+        border-radius: 5px;
 
         &:hover {
             background: $light-gray;
@@ -274,9 +275,70 @@ h4 {
 ul.linkList {
     li {
         color: $blue;
+        cursor: pointer;
 
         &:hover {
             text-decoration: underline;
         }
     }
 }
+
+
+.tooltip {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    display: inline-block;
+    font-weight: 300;
+    svg path {
+      @include themed() {
+        stroke: t('text');
+      }
+    }
+    svg circle {
+      @include themed() {
+        fill: t('text');
+      }
+    }
+  }
+  
+  .tooltip__text {
+    @include themed() {
+      background-color: t('text');
+      color: t('focus-bg')
+    }
+    min-width: 100px;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    right: 34px;
+  }
+  
+  .section .tooltip {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+  
+  .tooltip__text {
+    @include themed() {
+      background-color: t('text');
+    }
+  }
+  
+  .tooltip__text:after {
+      left: 100%;
+      top: 50%;
+      border: solid transparent;
+      content: "";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(136, 183, 213, 0);
+      border-width: 5px;
+      margin-top: -5px;
+    @include themed() {
+      border-left-color: t('text');
+    }
+  }

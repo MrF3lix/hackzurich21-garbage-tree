@@ -24,6 +24,12 @@ const Help = () => {
         <div className="inner">
             <Head>
                 <title>Saaro&amp;Saaro - Getting started</title>
+                <meta property="og:site_name" content="Getting started"></meta>
+                <meta name="title" content="Getting started"></meta>
+                <meta name="description" content="We provide the tools to access, understand, and see where medical information comes from and how it changes over time."></meta>
+                <meta property="og:title" content="Getting started"/>
+                <meta property="og:image" content="https://sns.saaro.ch/logo.png" />
+                <meta property="og:type" content="website" />
             </Head>
             <div className="container container--help">
                 <div className="container__left">
