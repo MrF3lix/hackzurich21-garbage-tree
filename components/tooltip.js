@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
-import { IconInfo } from './Icon';
+import { IconInfo } from './icon';
 
 export const Tooltip = ({ tooltipText }) => (
   <div className="tooltip">
