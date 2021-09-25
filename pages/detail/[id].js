@@ -7,7 +7,7 @@ const Detail = () => {
     const router = useRouter();
     const { id } = router.query;
     const data = useAsync(async () => {
-        if (!id) return { loading: true };
+        if (!id) return;
         const response = await fetch(`/api/detail/${id}`);
         return await response.json();
     }, [id]);
@@ -28,7 +28,7 @@ const Detail = () => {
                     <li>Parabetamol</li>
                 </ul>
             </div>
-            {data.loading ? (
+            {(data.loading || !data.value) ? (
                 <h1>Loading...</h1>
             ) : (
                 <>

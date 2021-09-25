@@ -43,7 +43,7 @@ const Find = () => {
                         ) : (
                             data.value?.map((item, i) => (
                                 <li key={i}>
-                                    <Link href={`/detail/${item.atc}`}>
+                                    <Link href={`/detail/${item.id}`}>
                                         <a>
                                             <span className="item--name">{item.name} <span className="item--atc">{item.atc}</span></span> 
                                             <span className="item--substance">{item.substance}</span>
