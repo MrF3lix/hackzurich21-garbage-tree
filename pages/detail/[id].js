@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import { useAsync } from 'react-use';
-import { Chip, CHIP_TYPE_GOOD } from '../../components/chip';
+import { Chip } from '../../components/chip';
 
 const Detail = () => {
     const router = useRouter();
@@ -13,6 +14,9 @@ const Detail = () => {
 
     return (
         <div className="inner">
+            <Head>
+                <title>Saaro&Saaro - {data.loading ? 'Loading...' : data.value?.name}</title>
+            </Head>
             <div className="breadcrumbs">
                 <ul>
                     <li>Home</li>
