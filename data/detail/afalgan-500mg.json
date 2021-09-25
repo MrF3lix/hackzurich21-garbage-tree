@@ -4,7 +4,7 @@
     "substance": "Parabetamol",
     "status": "active",
     "status_type": "green",
-    "authHolder": "Saaro&Saaro",
+    "authHolder": "Saaro&amp;Saaro",
     "atcCode": "N02BE01",
     "last_update": 1632583261646
 }

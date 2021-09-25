@@ -15,7 +15,7 @@ const Find = () => {
     return (
         <div className="inner inner--find">
             <Head>
-                <title>Saaro&Saaro - Find Information</title>
+                <title>Saaro&amp;Saaro - Find Information</title>
             </Head>
             <div className="container">
                 <div className="container__left">

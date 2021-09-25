@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <div className="inner">
             <Head>
-                <title>Saaro&Saaro - Access and understand proven medical information</title>
+                <title>Saaro&amp;Saaro - Access and understand proven medical information</title>
             </Head>
             <div className="container container--home">
                 <div className="container__left">
@@ -20,12 +20,12 @@ const Home = () => {
                     <div className="button__container">
                         <Link href="/find" passHref={true}>
                             <button className="button button--primary">
-                                Find information
+                                Search information
                             </button>
                         </Link>
                         <Link href="/help" passHref={true}>
                             <button className="button button--secondary">
-                                See how it works
+                                Getting started
                             </button>
                         </Link>
                     </div>

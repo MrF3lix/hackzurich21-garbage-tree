@@ -5,7 +5,7 @@ import { Chip } from '../../components/chip';
 import { useEffect, useRef, useState } from 'react';
 
 const Detail = () => {
-    const [tabIndex, setTabIndex] = useState(0);
+    const [tabIndex, setTabIndex] = useState(1);
     const styleContainer = useRef();
     const contentContainer = useRef();
 
@@ -106,6 +106,7 @@ const Detail = () => {
                             {tabIndex === 1 && (
                                 <div>
                                     <h3>Leaflet</h3>
+                                    <br/>
                                     <style ref={styleContainer}></style>
                                     <div ref={contentContainer}></div>
                                 </div>
