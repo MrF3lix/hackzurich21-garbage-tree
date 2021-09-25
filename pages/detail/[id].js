@@ -18,6 +18,16 @@ const Detail = ({ data }) => {
         if (!data.loading && data && tabIndex == 1) {
             data.content = insertAnchor(data.content, 'chtigkeit', 'driving'); // Fahrtüchtigkeit -> ü does not work...
             data.content = insertAnchor(data.content, 'Zusammensetzung', 'ingredients');
+            data.content = insertAnchor(data.content, 'Schwangerschaft', 'pregnancy');
+            data.content = insertAnchor(data.content, 'maximale Tagesdosis', 'maxDose');
+            data.content = insertAnchor(data.content, 'Lagerungshinweise', 'storage');
+            data.content = insertAnchor(data.content, 'Kontraindikationen', 'contraindications');
+
+            data.content = insertAnchor(data.content, 'nschte Wirkungen', 'sideEffects');
+            data.content = insertAnchor(data.content, 'Warnhinweise', 'warnings');
+            data.content = insertAnchor(data.content, 'Interaktionen', 'substances');
+
+            data.content = insertAnchor(data.content, 'Zulassungsnummer', 'regulatoryInformation');
 
             styleContainer.current.innerHTML = data.style;
             contentContainer.current.innerHTML = data.content;
@@ -114,51 +124,37 @@ const Detail = ({ data }) => {
                                             <div className="slide__header" onClick={() => setSlideIndex(0)}>Consumer</div>
                                             <div className="slide__content">
                                                 <h4>Basic Information</h4>
-                                                <ul>
+                                                <ul className="linkList">
                                                     <li onClick={() => goToSection('driving', 1)}>Driving</li>
                                                     <li onClick={() => goToSection('ingredients', 1)}>Ingredients</li>
-                                                    <li>TODO: Pregnancy</li>
-                                                    <li>TODO: Hormonbased</li>
-                                                    <li>TODO: Max. Dose</li>
-                                                    <li>TODO: Storage</li>
+                                                    <li onClick={() => goToSection('pregnancy', 1)}>Pregnancy</li>
+                                                    {/* <li>TODO: Hormonbased</li> */}
+                                                    <li onClick={() => goToSection('maxDose', 1)}>Max. Dose</li>
+                                                    <li onClick={() => goToSection('storage', 1)}>Storage</li>
                                                 </ul>
                                                 <h4>Contraindications</h4>
-                                                <ul>
-                                                    <li>TODO: Copy from Section</li>
+                                                <ul className="linkList">
+                                                    <li onClick={() => goToSection('contraindications', 1)}>Contraindications</li> 
                                                 </ul>
                                             </div>
                                         </div>
                                         <div className={slideIndex == 1 ? 'slide slide--active' : 'slide'}>
                                             <div className="slide__header" onClick={() => setSlideIndex(1)}>Professional</div>
                                             <div className="slide__content">
-                                                <h4>Side Effects</h4>
-                                                <ul>
-                                                    <li>TODO: Copy from Section</li>
-                                                </ul>
-                                                <h4>Warnings</h4>
-                                                <ul>
-                                                    <li>TODO: Copy from Section</li>
-                                                </ul>
-                                                <h4>Substances</h4>
-                                                <ul>
-                                                    <li>TODO: Copy from Section</li>
+                                                <ul className="linkList">
+                                                    <li onClick={() => goToSection('sideEffects', 1)}>Side Effects</li>
+                                                    <li onClick={() => goToSection('warnings', 1)}>Warnings</li>
+                                                    <li onClick={() => goToSection('substances', 1)}>Substances</li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div className={slideIndex == 2 ? 'slide slide--active' : 'slide'}>
                                             <div className="slide__header" onClick={() => setSlideIndex(2)}>Expert</div>
                                             <div className="slide__content">
-                                                <h4>Regulatory Information</h4>
-                                                <ul>
-                                                    <li>TODO: Copy from Section</li>
-                                                </ul>
-                                                <h4>Versions</h4>
-                                                <ul>
-                                                    <li>TODO: Copy from Section</li>
-                                                </ul>
-                                                <h4>Dependencies</h4>
-                                                <ul>
-                                                    <li>TODO: Copy from Section</li>
+                                                <ul className="linkList">
+                                                    <li onClick={() => goToSection('regulatoryInformation', 1)}>Regulatory Information</li>
+                                                    <li onClick={() => goToSection(null, 2)}>Versions</li>
+                                                    <li onClick={() => goToSection(null, 3)}>Dependencies</li>
                                                 </ul>
                                             </div>
                                         </div>

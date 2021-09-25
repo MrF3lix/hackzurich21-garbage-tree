@@ -263,3 +263,13 @@ h4 {
         }
     }
 }
+
+ul.linkList {
+    li {
+        color: $blue;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
