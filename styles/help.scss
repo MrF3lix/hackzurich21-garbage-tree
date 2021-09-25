@@ -1,0 +1,41 @@
+.buttons {
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-top: 30px;
+  padding: 50px;
+
+  h3 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    .in-cicle {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 28px;
+
+
+      border: 6px solid black;
+      border-radius: 50%;
+
+      margin-right: 8px;
+    }
+  }
+}

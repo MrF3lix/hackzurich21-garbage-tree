@@ -1,7 +1,10 @@
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Expert from '../assets/general/expert.svg';
 
 const Home = () => {
+    const router = useRouter();
+
     return (
         <div className="inner">
             <div className="container container--home">
@@ -16,7 +19,7 @@ const Home = () => {
                         <button className="button button--primary">
                             Find information
                         </button>
-                        <button className="button button--secondary">
+                        <button className="button button--secondary" onClick={() => router.push('/help')}>
                             See how it works
                         </button>
                     </div>
