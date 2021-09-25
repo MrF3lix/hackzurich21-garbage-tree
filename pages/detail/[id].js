@@ -29,7 +29,7 @@ const Detail = () => {
                         {data.value?.name} <span>{data.value?.substance}</span>
                         <Chip type={data.value?.status_type}>{data.value?.status}</Chip>
                     </h1>
-                    <p>{data.value?.corp}, {data.value?.country}, Last Update: {new Date(data.value?.last_update).toDateString()}</p>
+                    <p>{data.value?.authHolder}, ATC: {data.value?.atcCode}, Last Update: {new Date(data.value?.last_update).toDateString()}</p>
                     <div>
 
                     </div>
