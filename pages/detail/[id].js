@@ -5,7 +5,7 @@ import { Chip } from '../../components/chip';
 import { useEffect, useRef, useState } from 'react';
 
 const Detail = ({ data }) => {
-    const [tabIndex, setTabIndex] = useState(1);
+    const [tabIndex, setTabIndex] = useState(0);
     const styleContainer = useRef();
     const contentContainer = useRef();
 
@@ -19,12 +19,30 @@ const Detail = ({ data }) => {
     //     return await response.json();
     // }, [id]);
 
+
+    const insertAnchor = (str, phrase, id) => {
+        const re = new RegExp(`(<[^<>\/]+>[^<>\/]*${phrase}[^<>\/]*<\/[^<>\/]+>)`, 'g');
+
+        return str.replace(re, `<a id="${id}"></a>$1`);
+    };
+
     useEffect(() => {
         if (!data.loading && data && tabIndex == 1) {
+            data.content = insertAnchor(data.content, 'chtigkeit', 'driving'); // Fahrtüchtigkeit -> ü does not work...
+            data.content = insertAnchor(data.content, 'Zusammensetzung', 'ingredients');
+
             styleContainer.current.innerHTML = data.style;
             contentContainer.current.innerHTML = data.content;
         }
     }, [data, tabIndex]);
+
+    const [scrollTo, setScrollTo] = useState(null);
+    useEffect(() => {
+        if (tabIndex == 1 && scrollTo && document.getElementById(scrollTo)) {
+            document.getElementById(scrollTo).scrollIntoView({behavior: 'smooth'});
+            setScrollTo(null);
+        }
+    }, [scrollTo, tabIndex]);
 
     return (
         <div className="inner">
@@ -98,6 +116,18 @@ const Detail = ({ data }) => {
                             {tabIndex === 0 && (
                                 <div>
                                     <h3>Overview</h3>
+                                    <div onClick={() => {
+                                        setTabIndex(1);
+                                        setScrollTo('driving');
+                                    }}>
+                                        <h4>Fahrtüchtigkeit</h4>
+                                    </div>
+                                    <div onClick={() => {
+                                        setTabIndex(1);
+                                        setScrollTo('ingredients');
+                                    }}>
+                                        <h4>Zusammensetzung</h4>
+                                    </div>
                                 </div>
                             )}
 
