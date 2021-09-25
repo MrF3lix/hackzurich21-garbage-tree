@@ -2,8 +2,10 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { useAsync } from 'react-use';
 import { Chip } from '../../components/chip';
+import { useState } from 'react';
 
 const Detail = () => {
+    const [tabIndex, setTabIndex] = useState(0);
     const router = useRouter();
     const { id } = router.query;
     const data = useAsync(async () => {
@@ -28,7 +30,7 @@ const Detail = () => {
                     <li>Parabetamol</li>
                 </ul>
             </div>
-            {(data.loading || !data.value) ? (
+            {data.loading || !data.value ? (
                 <h1>Loading...</h1>
             ) : (
                 <>
@@ -42,13 +44,82 @@ const Detail = () => {
                         {data.value?.authHolder}, ATC: {data.value?.atcCode},
                         Last Update:{' '}
                         {new Date(data.value?.last_update).toDateString()}
+                        <div>
+                            <ul className="tab__list">
+                                <li
+                                    onClick={() => setTabIndex(0)}
+                                    className={
+                                        tabIndex === 0
+                                            ? 'tab tab--active'
+                                            : 'tab'
+                                    }
+                                >
+                                    Overview
+                                </li>
+                                <li
+                                    onClick={() => setTabIndex(1)}
+                                    className={
+                                        tabIndex === 1
+                                            ? 'tab tab--active'
+                                            : 'tab'
+                                    }
+                                >
+                                    Leaflet
+                                </li>
+                                <li
+                                    onClick={() => setTabIndex(2)}
+                                    className={
+                                        tabIndex === 2
+                                            ? 'tab tab--active'
+                                            : 'tab'
+                                    }
+                                >
+                                    Versions
+                                </li>
+                                <li
+                                    onClick={() => setTabIndex(3)}
+                                    className={
+                                        tabIndex === 3
+                                            ? 'tab tab--active'
+                                            : 'tab'
+                                    }
+                                >
+                                    Dependencies
+                                </li>
+                            </ul>
+
+                            {tabIndex === 0 && (
+                                <div>
+                                    <h3>Overview</h3>
+                                </div>
+                            )}
+
+                            {tabIndex === 1 && (
+                                <div>
+                                    <h3>Leaflet</h3>
+                                    {/* <div dangerouslySetInnerHTML={data.value.content}></div> */}
+                                </div>
+                            )}
+
+                            {tabIndex === 2 && (
+                                <div>
+                                    <h3>Versions</h3>
+                                </div>
+                            )}
+
+                            {tabIndex === 3 && (
+                                <div>
+                                    <h3>Dependencies</h3>
+                                </div>
+                            )}
+                        </div>
                     </p>
                     <div></div>
                 </>
             )}
 
             <br />
-            <code>{JSON.stringify(data.value)}</code>
+            {/* <code>{JSON.stringify(data.value)}</code> */}
         </div>
     );
 };
