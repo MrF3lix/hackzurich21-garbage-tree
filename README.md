@@ -1,5 +1,7 @@
 # Garbage Tree by Garbage People
 
+![Logo](./public/logo-small.png)
+
 - [Devpost](#)
 - [YouTube Video](#)
 - [sns.saaro.ch](https://sns.saaro.ch/)
