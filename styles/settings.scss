@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700;900&display=swap');
+
 $white: #FFFFFF;
 $light-gray: #ECEFF3;
 $medium-gray: #D2DAE4;
@@ -44,7 +46,7 @@ $themes: (
     focus-bg: $light-gray,
     text: $black,
     text-secondary: $dark-gray,
-    text-highlight: $blue,
+    text-highlight: $red,
     border: $light-gray,
     chip-bg-green: $light-green,
     chip-bg-yellow: $light-yellow,
@@ -56,7 +58,7 @@ $themes: (
     focus-bg: $dark-blue,
     text: $white,
     text-secondary: $white,
-    text-highlight: $blue,
+    text-highlight: $red,
     border: $dark-gray,
     chip-bg-green: $dark-green,
     chip-bg-yellow: $dark-yellow,
