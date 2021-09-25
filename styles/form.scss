@@ -1,0 +1,318 @@
+form {
+  width: 100%;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 2px solid $dark-gray;
+  background: none;
+  box-shadow: none;
+  display: block;
+  @include themed() {
+    color: t('text');
+  }
+
+  &.input--error {
+    border-color: $red;
+  }
+
+  &:active, &:focus {
+    border-color: $blue;
+    box-shadow: 0 0 1px 2px  rgba($blue, 0.1);
+  }
+  
+  &:disabled {
+    cursor: not-allowed;
+    border-color: $light-gray;
+    color: $medium-gray;
+  }
+
+  &.input--file {
+    padding: 13px 16px;
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 167px;
+  @include themed() {
+    color: t('text');
+  }
+}
+
+select {
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 2px solid $medium-gray;
+  background: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  @include themed() {
+    color: t('text');
+  }
+
+  &.select--error {
+    border-color: $red;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  height: 50px;
+  padding: 15px 25px;
+  font-size: 18px;
+  line-height: 19px;
+  border-radius: 10px;
+  border: 2px solid $blue;
+  transition: all .2s;
+  position: relative;
+  text-align: center;
+
+  svg {
+    width: 19px;
+    height: 19px;
+    margin-right: 10px;
+
+    circle, path {
+      stroke: $white;
+    }
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 3px 4px rgba($blue, 0.15);
+  }
+
+  &.button--primary {
+    background-color: $blue;
+    border-color: $blue;
+    color: $white;
+
+    &:hover, &:active {
+      background-color: rgba($blue, 0.8);
+      border-color: rgba($blue, 0.8);
+    }
+
+    &:focus {
+      box-shadow: 0px 0px 3px 4px rgba($blue, 0.15);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $light-gray;
+      border-color: $light-gray;
+      color: $medium-gray;
+    }
+  }
+
+  &.button--secondary {
+    background-color: transparent;
+    @include themed() {
+      border-color: t('text-highlight');
+      color: t('text-highlight');
+    }
+
+    &:focus {
+      @include themed() {
+        color: t('text-highlight');
+        box-shadow: 0px 0px 3px 4px rgba(t('text-highlight'), 0.15);
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      border-color: $light-gray;
+      color: $medium-gray;
+    }
+  }
+
+  &.button--link {
+    background-color: transparent;
+    border-color: transparent;
+    @include themed() {
+      color: t('text');
+    }
+
+    &:hover, &:active {
+      @include themed() {
+        color: t('text-highlight');
+      }
+    } 
+
+    &:focus {
+      @include themed() {
+        box-shadow: 0px 0px 2px 3px rgba(t('text-highlight'), 0.15);
+        color: t('text-highlight')
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $light-gray;
+      border-color: $light-gray;
+      color: $medium-gray;
+    }
+  }
+
+  &.button--danger {
+    background-color: transparent;
+    border-color: $red;
+    color: $red;
+
+    &:focus {
+      box-shadow: 0px 0px 3px 4px rgba($red, 0.15);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      border-color: $light-gray;
+      color: $medium-gray;
+    }
+  }
+}
+
+.input__checkbox {
+  position: relative;
+  svg {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    path {
+      @include themed() {
+        stroke: t('main-bg');
+      }
+    }
+  }
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox]+label {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+
+input[type=checkbox]+label:before,
+input[type=checkbox]:checked+label:before {
+  box-sizing: border-box;
+  content: '';
+  border: 1px solid $medium-gray;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: all .1s;
+}
+
+input[type=checkbox].input--error+label {
+  color: $red;
+}
+
+input[type=checkbox].input--error+label:before {
+  border: 1px solid $red;
+}
+
+input[type=checkbox]+label.disabled:before {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+input[type=checkbox]:checked+label:before {
+  @include themed() {
+    background-color: t('text-highlight');
+    border-color: t('text-highlight');
+  }
+}
+
+input[type=checkbox]:disabled+label:before {
+  cursor: not-allowed;
+  @include themed() {
+    background-color: t('disabled');
+    border-color: t('disabled');
+  }
+}
+
+input[type=checkbox].input--error+label:before {
+  border-color: $red;
+}
+
+.input__container {
+  margin: 25px 0;
+  display: flex;
+  flex-direction: column;
+
+  a {
+    margin: 10px 0;
+    @include themed() {
+      color: t('text-highlight');
+    }
+  }
+}
+
+label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  margin: 0;
+  position: relative;
+
+  span {
+    margin: 4px 0;
+  }
+
+  .error__message {
+    position: absolute;
+    bottom: -22px;
+  }
+}
+
+.button__container {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  .button {
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+  &.button__container--wide {
+    justify-content: stretch;
+    .button {
+      width: 100%;
+    }
+  }
+}
+
+.error, .error__message {
+  color: $red;
+  font-size: 12px;
+}
+
+table {
+  label span{
+    font-size: 16px;
+  }
+  input {
+    font-size: 16px;
+    padding: 12px;
+  }
+}

@@ -5,6 +5,7 @@ const Detail = () => {
     const router = useRouter();
     const { id } = router.query;
     const data = useAsync(async () => {
+        if (!id) return { loading: true };
         const response = await fetch(`/api/detail/${id}`);
         return await response.json();
     }, [id]);
@@ -16,6 +17,15 @@ const Detail = () => {
             ) : (
                 <h1>Detail: {data.value?.name}</h1>
             )}
+
+            <br />
+            <code>{JSON.stringify(data.value)}</code>
+
+            <div className="button__container">
+                <button className="button button--secondary">
+                    View Details
+                </button>
+            </div>
         </>
     );
 };

@@ -8,5 +8,77 @@ $black: #091829;
 $dark-blue: #173F6F;
 $blue: #2C75F6;
 $green: #6FCF97;
+$light-green: #6FCF9720;
+$dark-green: #304238;
 $yellow: #F4AF4C;
+$light-yellow: #F4AF4C20;
+$dark-yellow: #504236;
 $red: #C4321D;
+$light-red: #C4321D20;
+$dark-red: #4F3838;
+
+$breakpoints: (
+  'tiny':  ( min-width:  600px ),
+  'small':  ( min-width:  767px ),
+  'medium': ( min-width:  992px ),
+  'large':  ( min-width: 1200px ),
+  'x-large':  ( min-width: 2000px )
+) !default;
+
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+  
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+$themes: (
+  light: (
+    main-bg: $white,
+    focus-bg: $light-gray,
+    text: $black,
+    text-secondary: $dark-gray,
+    text-highlight: $blue,
+    border: $light-gray,
+    chip-bg-green: $light-green,
+    chip-bg-yellow: $light-yellow,
+    chip-bg-red: $light-red,
+    disabled: $light-gray,
+  ),
+  dark: (
+    main-bg: $black,
+    focus-bg: $dark-blue,
+    text: $white,
+    text-secondary: $white,
+    text-highlight: $blue,
+    border: $dark-gray,
+    chip-bg-green: $dark-green,
+    chip-bg-yellow: $dark-yellow,
+    chip-bg-red: $dark-red,
+    disabled: $medium-gray,
+  ),
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}
