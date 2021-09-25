@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const Detail = ({ data }) => {
     const [tabIndex, setTabIndex] = useState(0);
+    const [slideIndex, setSlideIndex] = useState(0);
     const styleContainer = useRef();
     const contentContainer = useRef();
 
@@ -30,6 +31,11 @@ const Detail = ({ data }) => {
             setScrollTo(null);
         }
     }, [scrollTo, tabIndex]);
+
+    const goToSection = (name, index) => {
+        setTabIndex(index);
+        setScrollTo(name);
+    };
 
     return (
         <div className="inner">
@@ -103,17 +109,33 @@ const Detail = ({ data }) => {
                             {tabIndex === 0 && (
                                 <div>
                                     <h3>Overview</h3>
-                                    <div onClick={() => {
-                                        setTabIndex(1);
-                                        setScrollTo('driving');
-                                    }}>
-                                        <h4>Fahrtüchtigkeit</h4>
-                                    </div>
-                                    <div onClick={() => {
-                                        setTabIndex(1);
-                                        setScrollTo('ingredients');
-                                    }}>
-                                        <h4>Zusammensetzung</h4>
+                                    <div className="slides">
+                                        <div className={slideIndex == 0 ? 'slide slide--active' : 'slide'}>
+                                            <div className="slide__header" onClick={() => setSlideIndex(0)}>Consumer</div>
+                                            <div className="slide__content">
+                                                <h4>Basic Information</h4>
+                                                <ul>
+                                                    <li onClick={() => goToSection('driving', 1)}>Driving Information</li>
+                                                    <li onClick={() => goToSection('ingredients', 1)}>Ingredients</li>
+                                                </ul>
+                                                <h4>Contraindications</h4>
+                                            </div>
+                                        </div>
+                                        <div className={slideIndex == 1 ? 'slide slide--active' : 'slide'}>
+                                            <div className="slide__header" onClick={() => setSlideIndex(1)}>Professional</div>
+                                            <div className="slide__content">
+                                                <h4>Side Effects</h4>
+                                                <h4>Warnings</h4>
+                                                <h4>Substances</h4>
+                                            </div>
+                                        </div>
+                                        <div className={slideIndex == 2 ? 'slide slide--active' : 'slide'}>
+                                            <div className="slide__header" onClick={() => setSlideIndex(2)}>Expert</div>
+                                            <div className="slide__content">
+                                                <h4>Regulatory Information</h4>
+                                                <h4>Contraindications</h4>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             )}
