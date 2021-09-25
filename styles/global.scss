@@ -193,3 +193,17 @@ h3 {
         }
     }
 }
+
+.banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    font-weight: 200;
+
+    &--danger {
+        background-color: $red;
+        color: $white;
+    }
+}

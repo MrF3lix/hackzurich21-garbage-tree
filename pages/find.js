@@ -38,6 +38,9 @@ const Find = () => {
                 </div>
                 <div className="container__left">
                     <ul className="search__results">
+                        {!data.loading && data.value?.length > 0 && (
+                            <p>Found {data.value.length} Search Results.</p>
+                        )}
                         {data.loading ? (
                             <span>Loading...</span>
                         ) : (

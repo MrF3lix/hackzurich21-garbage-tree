@@ -6,6 +6,7 @@ import Logo from '../assets/ci/logo-sns.svg';
 const App = ({ Component, pageProps }) => {
     return (
         <div className="root theme theme--light">
+            <div className="banner banner--danger">The content on this page does not provide any reliable medical information. This is for entertainment purposes only.</div>
             <header>
                 <Link href="/">
                     <a>
