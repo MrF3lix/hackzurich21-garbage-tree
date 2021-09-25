@@ -2,10 +2,13 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { useAsync } from 'react-use';
 import { Chip } from '../../components/chip';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const Detail = () => {
     const [tabIndex, setTabIndex] = useState(0);
+    const styleContainer = useRef();
+    const contentContainer = useRef();
+
     const router = useRouter();
     const { id } = router.query;
     const data = useAsync(async () => {
@@ -14,20 +17,26 @@ const Detail = () => {
         return await response.json();
     }, [id]);
 
+    useEffect(() => {
+        if (!data.loading && data.value) {
+            styleContainer.current.innerHTML = data.value.style;
+            contentContainer.current.innerHTML = data.value.content;
+        }
+    }, [data]);
+
     return (
         <div className="inner">
             <Head>
                 <title>
-                    Saaro&Saaro -{' '}
+                    Saaro&amp;Saaro -{' '}
                     {data.loading ? 'Loading...' : data.value?.name}
                 </title>
             </Head>
             <div className="breadcrumbs">
                 <ul>
                     <li>Home</li>
-                    <li>Medical</li>
-                    <li>Painkiller</li>
-                    <li>Parabetamol</li>
+                    <li>Find</li>
+                    <li>{data.loading ? 'Loading...' : data.value?.name}</li>
                 </ul>
             </div>
             {data.loading || !data.value ? (
@@ -114,7 +123,8 @@ const Detail = () => {
                             )}
                         </div>
                     </p>
-                    <div></div>
+                    <style ref={styleContainer}></style>
+                    <div ref={contentContainer}></div>
                 </>
             )}
 
