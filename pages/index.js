@@ -9,7 +9,7 @@ const Home = () => {
                     <h1>Access and understand proven medical information </h1>
                     <p>
                         We provide the tools to access, understand, and see
-                        where medical information comes from and how it change
+                        where medical information comes from and how it changes
                         over time.
                     </p>
                     <div className="button__container">
