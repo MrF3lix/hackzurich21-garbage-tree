@@ -51,9 +51,13 @@ const Detail = ({ data }) => {
     return (
         <div className="inner">
             <Head>
-                <title>
-                    Saaro&amp;Saaro - {data.loading ? 'Loading...' : data?.name}
-                </title>
+                <title>Saaro&amp;Saaro - {data.name}</title>
+                <meta property="og:site_name" content={`Saaro&amp;Saaro - ${data.name}`}></meta>
+                <meta name="title" content={`Saaro&amp;Saaro - ${data.name}`}></meta>
+                <meta name="description" content={`${data.name} - ${data.substance}`}></meta>
+                <meta property="og:title" content={`Saaro&amp;Saaro - ${data.name}`}/>
+                <meta property="og:image" content="https://sns.saaro.ch/logo.png" />
+                <meta property="og:type" content="website" />
             </Head>
             <div className="breadcrumbs">
                 <ul>

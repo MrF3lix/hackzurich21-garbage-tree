@@ -16,6 +16,12 @@ const Find = () => {
         <div className="inner inner--find">
             <Head>
                 <title>Saaro&amp;Saaro - Find Information</title>
+                <meta property="og:site_name" content="Find Information"></meta>
+                <meta name="title" content="Find Information"></meta>
+                <meta name="description" content="We provide the tools to access, understand, and see where medical information comes from and how it changes over time."></meta>
+                <meta property="og:title" content="Find Information"/>
+                <meta property="og:image" content="https://sns.saaro.ch/logo.png" />
+                <meta property="og:type" content="website" />
             </Head>
             <div className="container">
                 <div className="container__left">
