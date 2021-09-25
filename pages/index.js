@@ -14,9 +14,11 @@ const Home = () => {
                         over time.
                     </p>
                     <div className="button__container">
-                        <button className="button button--primary">
-                            Find information
-                        </button>
+                        <Link href="/find" passHref={true}>
+                            <button className="button button--primary">
+                                Find information
+                            </button>
+                        </Link>
                         <Link href="/help" passHref={true}>
                             <button className="button button--secondary">
                                 See how it works
