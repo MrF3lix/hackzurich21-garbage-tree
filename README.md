@@ -27,3 +27,7 @@ Our generalized idea about dependency graphs and versioning for research papers 
 - Try ideas on how to store the data in a good way relating to availability, verifiability and accessability.
 - Reference research papers with the respective uncertainty to make the trustworthyness transparent.
 - Create a versioning system that not only allows for different language/regional content but also for changes made after drug approval.
+
+---
+
+[Source of the drug information](https://download.swissmedicinfo.ch/)
