@@ -5,8 +5,8 @@ import { Chip } from '../../components/chip';
 import { useEffect, useRef } from 'react';
 
 const Detail = () => {
-    const style = useRef();
-    const html = useRef();
+    const styleContainer = useRef();
+    const contentContainer = useRef();
 
     const router = useRouter();
     const { id } = router.query;
@@ -17,9 +17,9 @@ const Detail = () => {
     }, [id]);
 
     useEffect(() => {
-        if (!data.loading) {
-            style.current.innerHTML = data.value.style;
-            html.current.innerHTML = data.value.content;
+        if (!data.loading && data.value) {
+            styleContainer.current.innerHTML = data.value.style;
+            contentContainer.current.innerHTML = data.value.content;
         }
     }, [data]);
 
@@ -53,8 +53,8 @@ const Detail = () => {
                         Last Update:{' '}
                         {new Date(data.value?.last_update).toDateString()}
                     </p>
-                    <style ref={style}></style>
-                    <div ref={html}></div>
+                    <style ref={styleContainer}></style>
+                    <div ref={contentContainer}></div>
                 </>
             )}
 
