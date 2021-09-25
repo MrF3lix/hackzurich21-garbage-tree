@@ -43,6 +43,22 @@ h1 {
 }
 
 
+h2 {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 52px;
+    line-height: 52px;
+}
+
+
+h3 {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 40px;
+}
+
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -58,11 +74,24 @@ h1 {
         }
     }
 
-    &.container--home {
+    &.container--home,
+    &.container--help {
         p {
             font-weight: 300;
             font-size: 24px;
             line-height: 31px;
         }
     }
+}
+
+.bg-light-gray {
+    background-color: $light-gray;
+}
+
+.bg-gray {
+    background-color: $gray;
+}
+
+.bg-dark-gray {
+    background-color: $dark-gray;
 }
