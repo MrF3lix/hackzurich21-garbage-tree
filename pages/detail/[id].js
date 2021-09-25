@@ -1,6 +1,4 @@
-import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { useAsync } from 'react-use';
 import { Chip } from '../../components/chip';
 import { useEffect, useRef, useState } from 'react';
 
@@ -8,17 +6,6 @@ const Detail = ({ data }) => {
     const [tabIndex, setTabIndex] = useState(0);
     const styleContainer = useRef();
     const contentContainer = useRef();
-
-    console.log('test', data);
-
-    const router = useRouter();
-    // const { id } = router.query;
-    // const data = useAsync(async () => {
-    //     if (!id) return;
-    //     const response = await fetch(`/api/detail/${id}`);
-    //     return await response.json();
-    // }, [id]);
-
 
     const insertAnchor = (str, phrase, id) => {
         const re = new RegExp(`(<[^<>\/]+>[^<>\/]*${phrase}[^<>\/]*<\/[^<>\/]+>)`, 'g');
