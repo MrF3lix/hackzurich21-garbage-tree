@@ -59,6 +59,14 @@ h3 {
     line-height: 40px;
 }
 
+.inner--find {
+    p {
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
 
 .container {
     display: flex;
@@ -139,5 +147,32 @@ h3 {
     &.chip--green {
         color: $dark-green;
         background-color: $light-green;
+    }
+}
+
+.search__results {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+
+    li a {
+        display: flex;
+        flex-direction: column;
+        padding: 25px 10px;
+        cursor: pointer;
+        border-bottom: 1px solid $light-gray;
+
+        &:hover {
+            background: $light-gray;
+        }
+
+        .item--name {
+            font-size: 20px;
+            font-weight: 500;
+            .item--atc {
+                font-size: 20px;
+                font-weight: 300;
+            }
+        }
     }
 }

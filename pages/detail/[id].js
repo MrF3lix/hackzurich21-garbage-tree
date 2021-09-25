@@ -15,7 +15,10 @@ const Detail = () => {
     return (
         <div className="inner">
             <Head>
-                <title>Saaro&Saaro - {data.loading ? 'Loading...' : data.value?.name}</title>
+                <title>
+                    Saaro&Saaro -{' '}
+                    {data.loading ? 'Loading...' : data.value?.name}
+                </title>
             </Head>
             <div className="breadcrumbs">
                 <ul>
@@ -31,17 +34,21 @@ const Detail = () => {
                 <>
                     <h1 className="detail__title">
                         {data.value?.name} <span>{data.value?.substance}</span>
-                        <Chip type={data.value?.status_type}>{data.value?.status}</Chip>
+                        <Chip type={data.value?.status_type}>
+                            {data.value?.status}
+                        </Chip>
                     </h1>
-                    <p>{data.value?.authHolder}, ATC: {data.value?.atcCode}, Last Update: {new Date(data.value?.last_update).toDateString()}</p>
-                    <div>
-
-                    </div>
+                    <p>
+                        {data.value?.authHolder}, ATC: {data.value?.atcCode},
+                        Last Update:{' '}
+                        {new Date(data.value?.last_update).toDateString()}
+                    </p>
+                    <div></div>
                 </>
             )}
-{/* 
+
             <br />
-            <code>{JSON.stringify(data.value)}</code> */}
+            <code>{JSON.stringify(data.value)}</code>
         </div>
     );
 };
