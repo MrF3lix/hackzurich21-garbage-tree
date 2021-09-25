@@ -1,6 +1,6 @@
-import '../styles/globals.css';
+import '../styles/globals.scss';
 
-function MyApp({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
     return (
         <>
             <header>header</header>
@@ -10,6 +10,6 @@ function MyApp({ Component, pageProps }) {
             <footer>footer</footer>
         </>
     );
-}
+};
 
-export default MyApp;
+export default App;
