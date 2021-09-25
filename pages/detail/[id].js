@@ -9,7 +9,7 @@ const Detail = ({ data }) => {
     const contentContainer = useRef();
 
     const insertAnchor = (str, phrase, id) => {
-        const re = new RegExp(`(<[^<>\/]+>[^<>\/]*${phrase}[^<>\/]*<\/[^<>\/]+>)`, 'g');
+        const re = new RegExp(`(<[^<>/]+>[^<>/]*${phrase}[^<>/]*</[^<>/]+>)`, 'g');
 
         return str.replace(re, `<a id="${id}"></a>$1`);
     };
