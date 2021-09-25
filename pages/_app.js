@@ -8,15 +8,15 @@ const App = ({ Component, pageProps }) => {
         <div className="root theme theme--light">
             <header>
                 <Link href="/">
-                    <Image src={Logo} height={200} width={500} alt="SnS" />
+                    <a>
+                        <Image src={Logo} height={200} width={500} alt="SnS" />
+                    </a>
                 </Link>
             </header>
             <main>
                 <Component {...pageProps} />
             </main>
-            <footer>
-                {/* <div className="inner">Footer</div> */}
-            </footer>
+            <footer>{/* <div className="inner">Footer</div> */}</footer>
         </div>
     );
 };
