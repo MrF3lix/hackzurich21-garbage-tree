@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 
 const handler = (req, res) => {
     let file = fs.readFileSync(`data/detail/${req.query.id}.json`);

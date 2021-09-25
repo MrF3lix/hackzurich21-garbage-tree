@@ -1,0 +1,6 @@
+{
+    "eslint.options": {
+        "configFile": "./.eslintrc.json",
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+}
