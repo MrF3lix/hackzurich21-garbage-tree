@@ -13,16 +13,16 @@ const Help = () => {
     const LinkRef = useRef();
 
     function handleQRClick() {
-        QRRef.current.scrollIntoView({ behavior: 'smooth' })
+        QRRef.current.scrollIntoView({ behavior: 'smooth' });
     }
 
     function handleLinkClick() {
-        LinkRef.current.scrollIntoView({ behavior: 'smooth' })
+        LinkRef.current.scrollIntoView({ behavior: 'smooth' });
     }
 
     return (<div className="inner">
         <Head>
-            <title>Saaro&Saaro - Getting started</title>
+            <title>Saaro&amp;Saaro - Getting started</title>
         </Head>
         <div className="container container--help">
             <div>
