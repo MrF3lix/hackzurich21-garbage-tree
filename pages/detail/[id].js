@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { Chip } from '../../components/chip';
 import { useEffect, useRef, useState } from 'react';
+import { Tooltip } from '../../components/tooltip';
 
 const Detail = ({ data }) => {
     const [tabIndex, setTabIndex] = useState(0);
@@ -128,19 +129,19 @@ const Detail = ({ data }) => {
                                                     <li onClick={() => goToSection('driving', 1)}>Driving</li>
                                                     <li onClick={() => goToSection('ingredients', 1)}>Ingredients</li>
                                                     <li onClick={() => goToSection('pregnancy', 1)}>Pregnancy</li>
-                                                    {/* <li>TODO: Hormonbased</li> */}
                                                     <li onClick={() => goToSection('maxDose', 1)}>Max. Dose</li>
                                                     <li onClick={() => goToSection('storage', 1)}>Storage</li>
                                                 </ul>
-                                                <h4>Contraindications</h4>
+                                                <h4>Contraindications <Tooltip tooltipText="Contraindications are conditions that serve as a reason not to take this medical treatment." /></h4>
                                                 <ul className="linkList">
-                                                    <li onClick={() => goToSection('contraindications', 1)}>Contraindications</li> 
+                                                    <li onClick={() => goToSection('contraindications', 1)}>List of contraindications</li> 
                                                 </ul>
                                             </div>
                                         </div>
                                         <div className={slideIndex == 1 ? 'slide slide--active' : 'slide'}>
                                             <div className="slide__header" onClick={() => setSlideIndex(1)}>Professional</div>
                                             <div className="slide__content">
+                                                <h4>Links</h4>
                                                 <ul className="linkList">
                                                     <li onClick={() => goToSection('sideEffects', 1)}>Side Effects</li>
                                                     <li onClick={() => goToSection('warnings', 1)}>Warnings</li>
@@ -151,6 +152,7 @@ const Detail = ({ data }) => {
                                         <div className={slideIndex == 2 ? 'slide slide--active' : 'slide'}>
                                             <div className="slide__header" onClick={() => setSlideIndex(2)}>Expert</div>
                                             <div className="slide__content">
+                                                <h4>Links</h4>
                                                 <ul className="linkList">
                                                     <li onClick={() => goToSection('regulatoryInformation', 1)}>Regulatory Information</li>
                                                     <li onClick={() => goToSection(null, 2)}>Versions</li>
