@@ -1,1 +1,1 @@
-# Garbage Tree
+# Garbage Tree by Garbage People
