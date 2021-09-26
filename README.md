@@ -2,8 +2,14 @@
 
 ![Logo](./public/logo-small.png)
 
-- [Devpost](#)
-- [YouTube Video](#)
+## Links
+
+- [Devpost](https://devpost.com/software/garbage_tree)
+- [Figma](https://www.figma.com/file/bPZ7oNTAYxFAa6OlfH9Q2t/GarbageTree?node-id=0%3A1)
+- [Concept](https://docs.google.com/document/d/1pCQaF7JG5kgWWADHFYee35hofKY-E2cRiCzIi-pGA5E/edit?usp=sharing)
+- [JamBoard](https://jamboard.google.com/d/1oDSyOBH8GwDgYChSjcal5LsnWTrChMpyzPCXJwIRp8E/viewer?f=0)
+- [Presentation](https://docs.google.com/presentation/d/1Vpu8yYszHWNmc7NKcJKp7LS_OzHYaOm1IYnr5u6GWxE/edit?usp=sharing)
+- [Video](https://www.youtube.com/watch?v=n4SpjJfEHs4)
 - [sns.saaro.ch](https://sns.saaro.ch/)
 
 ## Inspiration
