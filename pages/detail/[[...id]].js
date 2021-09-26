@@ -13,7 +13,7 @@ const Detail = ({ data }) => {
     const [slideIndex, setSlideIndex] = useState(0);
 
     useEffect(() => {
-        setTabIndex(parseInt(router.query.tabIndex));
+        setTabIndex(parseInt(router.query.tabIndex || 0));
     }, [router.query]);
 
     const insertAnchor = (str, phrase, id) => {
