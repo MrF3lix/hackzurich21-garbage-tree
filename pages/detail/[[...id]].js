@@ -75,9 +75,6 @@ const Detail = ({ data }) => {
                 'Zulassungsnummer',
                 'regulatoryInformation'
             );
-
-            // styleContainer.current.innerHTML = data.style;
-            // contentContainer.current.innerHTML = data.content;
         }
     }, [data, tabIndex]);
 
@@ -407,12 +404,45 @@ const Detail = ({ data }) => {
                             {tabIndex === 2 && (
                                 <div>
                                     <h3>Versions</h3>
+
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Version</th>
+                                                <th>Date</th>
+                                                <th>Description</th>
+                                                <th>Author</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1.0.0</td>
+                                                <td>26.09.2021</td>
+                                                <td>Initial Publication</td>
+                                                <td>Garbage People</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             )}
 
                             {tabIndex === 3 && (
                                 <div>
                                     <h3>Dependencies</h3>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Author</th>
+                                                <th>Publication Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colSpan={4}>No known dependencies</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             )}
                         </div>

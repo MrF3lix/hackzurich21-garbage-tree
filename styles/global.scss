@@ -342,3 +342,18 @@ ul.linkList {
       border-left-color: t('text');
     }
   }
+
+  table {
+      margin: 20px 0;
+      width: 100%;
+      th,td {
+          border-bottom: 1px solid $light-gray;
+          padding: 15px 10px;
+      }
+      th {
+          text-align: left;
+      }
+      td {
+          font-weight: 300;
+      }
+  }
