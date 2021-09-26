@@ -142,18 +142,18 @@ h4 {
 }
 
 .detail__title {
+    margin: 20px 0;
     font-size: 48px;
+    line-height: 52px;
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
+    gap: 10px;
     span {
         font-size: 32px;
         font-weight: 100;
-        margin-left: 10px;
-    }
-
-    .chip {
-        margin-left: 20px;
+        margin-right: 10px;
+        line-height: 40px;
     }
 }
 
